@@ -1,0 +1,14 @@
+tool_id: execute_payment_retry
+domain: payments
+version: 1.0.0
+description: Execute a payment retry for a failed payment exception. Requires policy
+  approval and may require human approval based on risk tier.
+data_sources:
+- PaymentProcessingSystem
+- TransactionEngine
+pii_level: low
+risk_tier: medium
+requires_human_approval: true
+metadata:
+  created_at: '2026-02-07T14:51:21Z'
+  created_by: migration

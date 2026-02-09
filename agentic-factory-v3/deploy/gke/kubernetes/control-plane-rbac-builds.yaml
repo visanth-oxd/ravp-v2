@@ -1,0 +1,32 @@
+# RBAC: allow the control-plane to create Kaniko build Jobs in its own namespace (ravp).
+# Required for "Build and Push Docker Image" from the UI when using Artifact Registry.
+# Also ensure the default service account (or the one used by the build Job) can push to
+# Artifact Registry (e.g. grant roles/artifactregistry.writer to the GCP service account).
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ravp-agent-builds
+  namespace: ravp
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "configmaps"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: ["batch"]
+    resources: ["jobs"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ravp-control-plane-builds
+  namespace: ravp
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ravp-agent-builds
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: ravp
+    apiGroup: ""

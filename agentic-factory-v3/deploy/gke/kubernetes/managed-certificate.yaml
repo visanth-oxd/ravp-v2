@@ -1,0 +1,13 @@
+# Optional: Google-managed TLS certificate for ravp-ai.co.uk.
+# After applying, add to ingress.yaml metadata.annotations:
+#   networking.gke.io/managed-certificates: "ravp-cert"
+# Then kubectl apply -f ingress.yaml again. Certificate provisioning can take 15–60 minutes.
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: ravp-cert
+  namespace: ravp
+spec:
+  domains:
+    - ravp-ai.co.uk
+    - www.ravp-ai.co.uk

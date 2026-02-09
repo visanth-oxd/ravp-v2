@@ -1,0 +1,141 @@
+# Tool registry: allowed tools for the agent factory.
+# Each tool: data_sources (CoreBankingSystem, CustomerDataSystem, PaymentProcessingSystem, TransactionEngine), pii_level, risk_tier, requires_human_approval.
+#
+# Tools are the authority boundary - agents can ONLY use registered tools.
+# This prevents unauthorized data access and dangerous actions.
+
+tools:
+  get_customer_profile:
+    description: "Fetch customer profile from systems of record (CoreBankingSystem/CustomerDataSystem)."
+    data_sources: ["CoreBankingSystem", "CustomerDataSystem"]
+    pii_level: high
+    risk_tier: low
+    requires_human_approval: false
+
+  get_payment_exception:
+    description: "Fetch payment/transaction exception details from PaymentProcessingSystem/TransactionEngine (e.g. failed payment, reason code)."
+    data_sources: ["PaymentProcessingSystem", "TransactionEngine"]
+    pii_level: low
+    risk_tier: low
+    requires_human_approval: false
+
+  suggest_payment_resolution:
+    description: "Suggest resolution for a failed payment (retry, waive fee, escalate). Advisory only; human must approve."
+    data_sources: []
+    pii_level: none
+    risk_tier: medium
+    requires_human_approval: true
+
+  execute_payment_retry:
+    description: "Execute a payment retry for a failed payment exception. Requires policy approval and may require human approval based on risk tier."
+    data_sources: ["PaymentProcessingSystem", "TransactionEngine"]
+    pii_level: low
+    risk_tier: medium
+    requires_human_approval: true
+
+  summarise_text:
+    description: "Summarise long text (e.g. exception details or notes)."
+    data_sources: []
+    pii_level: low
+    risk_tier: low
+    requires_human_approval: false
+
+  get_transaction_history:
+    description: "Get transaction history for a customer (for fraud analysis)."
+    data_sources: ["PaymentProcessingSystem", "TransactionEngine"]
+    pii_level: high
+    risk_tier: medium
+    requires_human_approval: false
+
+  check_risk_score:
+    description: "Check risk score for customer or transaction."
+    data_sources: ["RiskManagementSystem"]
+    pii_level: medium
+    risk_tier: medium
+    requires_human_approval: false
+
+  flag_suspicious_account:
+    description: "Flag a suspicious account for manual review."
+    data_sources: []
+    pii_level: high
+    risk_tier: high
+    requires_human_approval: true
+
+  # GCP Cloud Reliability (Monitoring / Logging)
+  get_incident:
+    description: "Fetch incident/alert details from GCP (Incident Management / Monitoring)."
+    data_sources: ["Google Cloud Monitoring", "Incident Management"]
+    pii_level: low
+    risk_tier: low
+    requires_human_approval: false
+
+  get_metric_series:
+    description: "Fetch metric time series from Cloud Monitoring for analysis."
+    data_sources: ["Google Cloud Monitoring"]
+    pii_level: low
+    risk_tier: low
+    requires_human_approval: false
+
+  get_log_entries:
+    description: "Fetch log entries from Cloud Logging for troubleshooting."
+    data_sources: ["Google Cloud Logging"]
+    pii_level: low
+    risk_tier: low
+    requires_human_approval: false
+
+  suggest_remediation:
+    description: "Suggest remediation steps for a cloud incident (advisory only)."
+    data_sources: []
+    pii_level: none
+    risk_tier: medium
+    requires_human_approval: true
+
+  request_healing:
+    description: "Invoke the Cloud Healing Agent to apply remediation (resize Cloud SQL, restart instance)."
+    data_sources: ["Cloud Healing Agent"]
+    pii_level: none
+    risk_tier: high
+    requires_human_approval: true
+
+  get_instance_details:
+    description: "Get Cloud SQL or GCE instance details (tier, state, region)."
+    data_sources: ["Google Cloud SQL Admin", "Compute API"]
+    pii_level: low
+    risk_tier: low
+    requires_human_approval: false
+
+  resize_cloud_sql_instance:
+    description: "Resize a Cloud SQL instance to a new tier (e.g. db-n1-standard-4)."
+    data_sources: ["Google Cloud SQL Admin"]
+    pii_level: none
+    risk_tier: high
+    requires_human_approval: true
+
+  restart_instance:
+    description: "Restart a GCE or Cloud SQL instance."
+    data_sources: ["Google Compute API", "Cloud SQL"]
+    pii_level: none
+    risk_tier: high
+    requires_human_approval: true
+
+  list_incidents:
+    description: "List incidents (open, resolved, or all). Used by Incident Coordinator to find incidents."
+    data_sources: ["Incident Management", "Google Cloud Monitoring"]
+    pii_level: low
+    risk_tier: low
+    requires_human_approval: false
+
+  request_meeting:
+    description: "Request a meeting with humans and/or other agents. In production would create calendar/Meet event."
+    data_sources: []
+    pii_level: none
+    risk_tier: low
+    requires_human_approval: false
+
+  # Sample: public API (no auth) - JSONPlaceholder
+  get_public_post:
+    description: "Fetch a post by ID from JSONPlaceholder (public demo API). Use for testing API-based tools; no auth required."
+    data_sources: ["JSONPlaceholder"]
+    pii_level: none
+    risk_tier: low
+    requires_human_approval: false

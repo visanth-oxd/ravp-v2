@@ -1,0 +1,36 @@
+agent_id: payment_retry
+version: 1.1.1
+domain: payments
+group: business
+risk_tier: high
+purpose:
+  goal: Ensure payment reliability and customer satisfaction by intelligently retrying failed transactions according to business rules
+skills:
+- payment_exception_analysis
+- retry_decision_making
+- customer_impact_assessment
+allowed_tools:
+- get_customer_profile
+- get_payment_exception
+policies:
+- payments/retry
+- payments/retry_schedule
+model: null
+confidence_threshold: 0.7
+human_in_the_loop: true
+changelog:
+- version: 1.1.0
+  previous_version: 1.0.0
+  timestamp: '2026-02-06T15:32:46.701511Z'
+  changes:
+    minor:
+    - 'policies added: payments/retry_schedule'
+  changed_by: null
+- version: 1.1.1
+  previous_version: 1.1.0
+  timestamp: '2026-02-06T19:09:21.144157Z'
+  changes:
+    patch:
+    - 'model changed: gemini-2.5-flash -> None'
+    - 'confidence_threshold changed: 0.9 -> 0.7'
+  changed_by: null

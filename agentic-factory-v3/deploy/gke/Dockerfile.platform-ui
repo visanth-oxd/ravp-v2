@@ -1,0 +1,18 @@
+# Build from repo root: docker build -f deploy/gke/Dockerfile.platform-ui -t ravp-platform-ui .
+# Use Google's Docker Hub mirror if registry-1.docker.io is unreachable (EOF)
+FROM mirror.gcr.io/library/python:3.11-slim
+
+WORKDIR /app
+
+COPY deploy/gke/requirements-platform-ui.txt requirements-ui.txt
+RUN pip install --no-cache-dir -r requirements-ui.txt
+
+COPY platform_ui/ ./platform_ui/
+
+# API_URL is set at runtime to point to control-plane service (e.g. http://ravp-control-plane:8010)
+ENV API_URL=http://localhost:8010
+
+EXPOSE 8501
+
+WORKDIR /app/platform_ui
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0", "--server.headless=true"]

@@ -1,0 +1,30 @@
+agent_id: cloud_healing
+version: 1.0.0
+domain: cloud_platform
+group: cloud
+risk_tier: high
+purpose:
+  goal: Execute remediation actions on GCP resources (resize Cloud SQL, restart instances)
+  description: Invoked by Cloud Reliability Agent or operators to apply healing actions.
+allowed_tools:
+  - get_instance_details
+  - resize_cloud_sql_instance
+  - restart_instance
+# Describes this agent's capabilities so other agents' LLMs can suggest when to invoke it.
+capability_for_other_agents:
+  summary: "Can resize Cloud SQL instances, restart GCE/Cloud SQL instances, and fetch instance details. Use when remediation requires infrastructure changes (e.g. scale database, restart a stuck instance)."
+  when_to_suggest: "Suggest invoking when incident or remediation indicates high Cloud SQL CPU, connection exhaustion, disk pressure, or backend/instance restarts that could be addressed by scaling or restarting."
+  actions:
+    - name: get_instance_details
+      description: "Get current tier, state, region for a Cloud SQL or GCE instance."
+      params: ["instance_id (e.g. cloud-sql-instance-1)"]
+    - name: resize_cloud_sql_instance
+      description: "Resize Cloud SQL to a new tier (e.g. db-n1-standard-4) to add CPU/memory."
+      params: ["instance_id", "new_tier (e.g. db-n1-standard-4)"]
+    - name: restart_instance
+      description: "Restart a GCE or Cloud SQL instance."
+      params: ["instance_id"]
+policies: []
+model: null
+confidence_threshold: 0.8
+human_in_the_loop: true

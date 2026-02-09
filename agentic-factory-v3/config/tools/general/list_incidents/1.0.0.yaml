@@ -1,0 +1,14 @@
+tool_id: list_incidents
+domain: general
+version: 1.0.0
+description: List incidents (open, resolved, or all). Used by Incident Coordinator
+  to find incidents.
+data_sources:
+- Incident Management
+- Google Cloud Monitoring
+pii_level: low
+risk_tier: low
+requires_human_approval: false
+metadata:
+  created_at: '2026-02-08T13:39:40Z'
+  created_by: migration

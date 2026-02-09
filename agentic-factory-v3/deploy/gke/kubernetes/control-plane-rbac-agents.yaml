@@ -1,0 +1,41 @@
+# RBAC: allow the control-plane (when running in-cluster) to create/update agents.
+# Apply this so "Deploy Agent" from the UI can apply manifests to the same cluster.
+# The control-plane runs in namespace 'ravp'; agents are deployed to namespace 'agents' (or as in the manifest).
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: agents
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ravp-agent-deployer
+  namespace: agents
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "configmaps", "secrets"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: ["apps"]
+    resources: ["deployments", "replicasets"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ravp-control-plane-deployer
+  namespace: agents
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ravp-agent-deployer
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: ravp
+    apiGroup: ""
+# If your control-plane uses a dedicated service account, use it instead:
+#  - kind: ServiceAccount
+#    name: ravp-control-plane
+#    namespace: ravp
+#    apiGroup: ""

@@ -1,0 +1,35 @@
+# Agent definition: Template Agent
+# Copy this file and modify for your new agent
+
+agent_id: template  # Change to your agent ID
+version: 1.0.0
+domain: your_domain  # e.g., "payments", "customer_service", "fraud"
+group: platform  # business | cloud | business_intelligence | platform (for UI and persona visibility)
+risk_tier: low  # low | medium | high
+
+purpose:
+  goal: What this agent does (one sentence)
+  instructions_prefix: |
+    You are a [role]. Your role is to:
+    1. [Task 1]
+    2. [Task 2]
+    3. [Task 3]
+    4. Always require human approval for high-impact actions
+
+owners:
+  business: Business Team Name
+  tech: AI Platform Team
+  risk: Risk & Compliance
+
+allowed_tools:
+  - tool_name_1  # List all tools this agent can use
+  - tool_name_2
+  # Add more tools as needed
+
+policies:
+  - domain/policy_name  # e.g., "payments/retry", "fraud/block"
+  # Add policies as needed
+
+model: gemini-2.5-flash  # LLM model to use
+confidence_threshold: 0.7  # Minimum confidence for actions (0.0 to 1.0)
+human_in_the_loop: true  # Require human approval for actions

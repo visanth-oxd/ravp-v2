@@ -1,0 +1,17 @@
+domains:
+  payments:
+    path: payments/
+    description: Payments domain tools
+    tool_count: 3
+  general:
+    path: general/
+    description: General domain tools
+    tool_count: 13
+  fraud:
+    path: fraud/
+    description: Fraud domain tools
+    tool_count: 3
+  customer:
+    path: customer/
+    description: Customer domain tools
+    tool_count: 1

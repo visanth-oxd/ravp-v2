@@ -1,0 +1,4 @@
+# Reserve a global static IP for the Ingress (GCE Ingress uses global forwarding rule).
+# Create this in GCP first, then reference it in ingress.yaml.
+# Apply: gcloud compute addresses create ravp-ip --global
+# Then uncomment the annotation in ingress.yaml and set the host to your domain.

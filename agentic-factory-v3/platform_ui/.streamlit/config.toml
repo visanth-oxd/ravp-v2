@@ -1,0 +1,24 @@
+# Streamlit config for running behind reverse proxy (GKE Ingress / port-forward).
+# Reduces load and avoids WebSocket/CORS issues when not serving directly.
+
+[server]
+# Bind to all interfaces (already set via CLI; kept for clarity)
+address = "0.0.0.0"
+port = 8501
+headless = true
+# When behind proxy/Ingress, avoid CORS/XSRF issues
+enableCORS = false
+enableXsrfProtection = false
+# Some proxies strip WebSocket headers; disable compression if connection fails
+enableWebsocketCompression = false
+# Max upload size (MB)
+maxUploadSize = 200
+
+[browser]
+gatherUsageStats = false
+
+[runner]
+# Disable file watcher in container (no local edits); reduces CPU
+fileWatcherType = "none"
+# Don't re-run on script save in production
+fastReruns = false

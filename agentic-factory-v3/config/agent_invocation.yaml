@@ -1,0 +1,18 @@
+# Agent invocation policy: which agents can invoke which (elevated-permission agents).
+# Only listed callers are allowed to invoke each target. Enforced by AgentInvocationGateway.
+#
+# Security: The target agent (e.g. cloud_healing) has permissions to change resources.
+# The caller (e.g. cloud_reliability) has only read-only + permission to submit requests.
+# All invocations are audited with caller_agent_id and target_agent_id.
+
+invocation_policy:
+  # Target agent_id -> list of agent_ids allowed to invoke it
+  cloud_healing:
+    allowed_callers:
+      - cloud_reliability
+      - incident_coordinator
+    # Optional: require human approval for certain actions (future use)
+    # require_approval_for: [resize_cloud_sql_instance, restart_instance]
+  # Add more targets as needed, e.g.:
+  # cloud_remediation:
+  #   allowed_callers: [cloud_reliability, on_call_engineer]

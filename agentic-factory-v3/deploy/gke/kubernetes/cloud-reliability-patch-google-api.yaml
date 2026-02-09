@@ -1,0 +1,9 @@
+# Add GOOGLE_API_KEY from secret to cloud-reliability deployment.
+# Run the command below (one line). Then restart the deployment.
+#
+#   kubectl patch deployment cloud-reliability -n agents --type=json -p='[{"op":"add","path":"/spec/template/spec/containers/0/env/-","value":{"name":"GOOGLE_API_KEY","valueFrom":{"secretKeyRef":{"name":"agent-secrets","key":"google-api-key"}}}}]'
+#
+#   kubectl rollout restart deployment/cloud-reliability -n agents
+#
+# If the deployment already has an env section, the patch adds this var. If you get "path not found",
+# your container name may differ: check with kubectl get deployment cloud-reliability -n agents -o yaml

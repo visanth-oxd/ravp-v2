@@ -1,0 +1,12 @@
+tool_id: get_metric_series
+domain: general
+version: 1.0.0
+description: Fetch metric time series from Cloud Monitoring for analysis.
+data_sources:
+- Google Cloud Monitoring
+pii_level: low
+risk_tier: low
+requires_human_approval: false
+metadata:
+  created_at: '2026-02-07T14:51:21Z'
+  created_by: migration

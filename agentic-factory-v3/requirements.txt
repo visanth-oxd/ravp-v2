@@ -1,0 +1,28 @@
+# Control-plane dependencies
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+pyyaml>=6.0.1
+
+# Agent SDK dependencies
+requests>=2.28.0
+google-genai>=0.2.0  # For LLM integration (new package)
+# google-generativeai>=0.3.0  # Deprecated, use google-genai instead
+# google-adk (optional, for ADK integration)
+
+# Protocols: MCP and A2A
+mcp>=1.0.0
+
+# Optional: Google Cloud SDK when run via python -m (e.g. GCR auth, GKE deploy with Homebrew gcloud)
+PySocks>=1.7.0
+
+# Optional: Kubernetes client for in-cluster deploy (when control-plane runs in GKE)
+kubernetes>=28.0.0
+
+# Optional: Google Cloud APIs (for get_log_entries, get_metric_series production use)
+# google-cloud-logging>=3.0.0
+# google-cloud-monitoring>=2.0.0
+
+# Testing (optional)
+pytest>=7.4.0
+httpx>=0.25.0

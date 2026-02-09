@@ -1,0 +1,29 @@
+# Build from repo root: docker build -f deploy/gke/Dockerfile.control-plane -t ravp-control-plane .
+# Use Google's Docker Hub mirror if registry-1.docker.io is unreachable (EOF)
+FROM mirror.gcr.io/library/python:3.11-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends gcc && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Repo layout expected by run_control_plane.py and control-plane (config, policies, agents)
+COPY run_control_plane.py .
+COPY control-plane/ ./control-plane/
+COPY config/ ./config/
+COPY policies/ ./policies/
+COPY agent-sdk/ ./agent-sdk/
+COPY agents/ ./agents/
+COPY protocols/ ./protocols/
+COPY tools/ ./tools/
+COPY scripts/ ./scripts/
+
+ENV PYTHONPATH=/app
+ENV PORT=8010
+
+EXPOSE 8010
+
+# Run from /app so paths resolve (control-plane expects repo root = /app)
+CMD ["python", "run_control_plane.py"]

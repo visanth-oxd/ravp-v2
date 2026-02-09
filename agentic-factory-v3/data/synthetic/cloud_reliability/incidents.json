@@ -1,0 +1,35 @@
+[
+  {
+    "incident_id": "INC-GCP-2025-001",
+    "title": "High latency and elevated 5xx on us-central1 API service",
+    "severity": "P1",
+    "status": "open",
+    "created_at": "2025-02-06T08:15:00Z",
+    "affected_services": ["api-gateway", "backend-service", "cloud-sql"],
+    "symptoms": [
+      "P95 latency increased from 200ms to 2.5s",
+      "5xx error rate rose to 8%",
+      "Cloud SQL CPU sustained >85%",
+      "Backend instance restarts in us-central1-a"
+    ],
+    "resource_type": "gce_instance",
+    "resource_id": "backend-service-us-central1-a-001",
+    "project_id": "my-gcp-project",
+    "region": "us-central1",
+    "summary": "Complex incident involving API gateway timeouts, backend restarts, and database pressure. Root cause under investigation."
+  },
+  {
+    "incident_id": "INC-GCP-2025-002",
+    "title": "Spike in Cloud Function cold starts",
+    "severity": "P2",
+    "status": "resolved",
+    "created_at": "2025-02-05T14:00:00Z",
+    "affected_services": ["cloud-functions"],
+    "symptoms": ["Cold start latency p99 > 5s", "Concurrent execution limit approached"],
+    "resource_type": "cloud_function",
+    "resource_id": "order-processor",
+    "project_id": "my-gcp-project",
+    "region": "us-central1",
+    "summary": "Resolved after scaling min instances."
+  }
+]

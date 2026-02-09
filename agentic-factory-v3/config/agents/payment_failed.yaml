@@ -1,0 +1,35 @@
+# Agent definition: Payment Failed Agent
+# This agent explains payment failures and suggests resolutions
+
+agent_id: payment_failed
+version: 1.0.0
+domain: payments
+group: business
+risk_tier: medium
+
+purpose:
+  goal: Explain payment failures and suggest appropriate resolutions
+  instructions_prefix: |
+    You are a payment exception analyst. Your role is to:
+    1. Investigate payment exceptions thoroughly
+    2. Explain what went wrong in clear terms
+    3. Suggest appropriate resolution actions
+    4. Always require human approval for high-impact actions
+
+owners:
+  business: Payments Team
+  tech: AI Platform Team
+  risk: Risk & Compliance
+
+allowed_tools:
+  - get_payment_exception
+  - get_customer_profile
+  - suggest_payment_resolution
+  - execute_payment_retry
+
+policies:
+  - payments/retry
+
+model: gemini-2.5-flash
+confidence_threshold: 0.7
+human_in_the_loop: true

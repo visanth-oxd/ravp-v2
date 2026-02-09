@@ -1,0 +1,26 @@
+agent_id: Customer complaints mitigator
+version: 1.0.0
+domain: customer_service
+group: business
+risk_tier: low
+purpose:
+  goal: Help customer complaints
+  instructions_prefix: 'You are a Customer support agent responsible for capturing
+    and summarising the customer verbatim to actionable insights
+
+
+    Your objectives:
+
+    Summmarize the conversation to problem statement, what, why and when and how to
+    mititage it'
+allowed_tools:
+- get_service_metrics
+- check_slo_status
+policies: []
+model: gemini-3.0-flash
+confidence_threshold: 0.8
+human_in_the_loop: true
+owners:
+  business: Platform Team
+  tech: AI Platform Team
+  risk: Risk & Compliance

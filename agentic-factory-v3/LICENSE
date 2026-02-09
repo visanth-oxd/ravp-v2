@@ -1,0 +1,65 @@
+RAVP Proprietary License
+
+Copyright (c) 2026 RAVP Contributors. All Rights Reserved.
+
+RAVP: Regulated Agent Vending Platform ("Software")
+
+This license applies to the Software and all associated documentation files.
+
+PERMITTED USES:
+1. Personal Evaluation - You may view, download, and run the Software for 
+   personal evaluation and learning purposes only.
+
+2. Academic/Educational Use - Educational institutions may use the Software 
+   for teaching and research purposes only.
+
+3. Hackathon Evaluation - Judges and participants may review and evaluate 
+   the Software as part of the Gemini Hackathon or similar competitions.
+
+PROHIBITED USES:
+The following uses are strictly prohibited without prior written permission:
+
+1. Commercial Use - You may NOT use the Software or any derivative works 
+   for any commercial purpose, including but not limited to:
+   - Offering the Software as a service (SaaS)
+   - Incorporating into commercial products or services
+   - Using in production environments for business operations
+   - Monetizing in any form
+
+2. Competitive Use - You may NOT use the Software to build competing 
+   products or services, including but not limited to:
+   - Agent orchestration platforms
+   - Governed AI platforms
+   - Agent deployment systems
+   - Similar AI agent management solutions
+
+3. Distribution - You may NOT distribute, sublicense, lease, rent, or 
+   transfer the Software to any third party.
+
+4. Modification - You may NOT create derivative works, modify, reverse 
+   engineer, decompile, or disassemble the Software.
+
+5. Removal of Notices - You may NOT remove or alter any copyright, 
+   trademark, or other proprietary notices.
+
+COMMERCIAL LICENSING:
+For commercial use, enterprise licenses, or other permissions not granted 
+herein, please contact: visanthoxd@gmail.com
+
+DISCLAIMER:
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+TERMINATION:
+This license is effective until terminated. Your rights under this license 
+will terminate automatically without notice if you fail to comply with any 
+of its terms.
+
+GOVERNING LAW:
+This license shall be governed by and construed in accordance with the laws 
+applicable in the jurisdiction of the copyright holder.

@@ -1,0 +1,38 @@
+# Agent definition: Fraud Detection Agent
+# This agent detects fraudulent payment patterns and can interact with payment_failed agent
+
+agent_id: fraud_detection
+version: 1.0.0
+domain: fraud
+group: business
+risk_tier: high
+
+purpose:
+  goal: Detect fraudulent payment patterns and coordinate with other agents
+  instructions_prefix: |
+    You are a fraud detection analyst. Your role is to:
+    1. Analyze payment patterns for fraud indicators
+    2. Score transactions for fraud risk
+    3. Coordinate with payment_failed agent when fraud is detected
+    4. Recommend blocking or flagging suspicious accounts
+    5. Always err on the side of caution for high-risk transactions
+
+owners:
+  business: Fraud Prevention Team
+  tech: AI Platform Team
+  risk: Risk & Compliance
+
+allowed_tools:
+  - get_payment_exception
+  - get_customer_profile
+  - get_transaction_history
+  - flag_suspicious_account
+  - check_risk_score
+
+policies:
+  - fraud/block
+  - fraud/flag
+
+model: gemini-2.5-flash
+confidence_threshold: 0.8
+human_in_the_loop: true

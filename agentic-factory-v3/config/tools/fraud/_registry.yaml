@@ -1,0 +1,15 @@
+domain: fraud
+description: Fraud domain tools
+tools:
+- tool_id: flag_suspicious_account
+  current_version: 1.0.0
+  latest_version: 1.0.0
+  status: active
+- tool_id: check_risk_score
+  current_version: 1.0.0
+  latest_version: 1.0.0
+  status: active
+- tool_id: get_transaction_history
+  current_version: 1.0.0
+  latest_version: 1.0.0
+  status: active

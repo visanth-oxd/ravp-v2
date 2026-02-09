@@ -1,0 +1,104 @@
+{
+  "time_series": [
+    {
+      "metric": "latency",
+      "type": "request_latency",
+      "resource": "backend-service-us-central1-a-001",
+      "unit": "ms",
+      "points": [
+        {"timestamp": "2025-02-06T08:00:00Z", "value": 180},
+        {"timestamp": "2025-02-06T08:05:00Z", "value": 195},
+        {"timestamp": "2025-02-06T08:10:00Z", "value": 210},
+        {"timestamp": "2025-02-06T08:15:00Z", "value": 450},
+        {"timestamp": "2025-02-06T08:20:00Z", "value": 1200},
+        {"timestamp": "2025-02-06T08:25:00Z", "value": 2500},
+        {"timestamp": "2025-02-06T08:30:00Z", "value": 2400}
+      ],
+      "summary": {"min": 180, "max": 2500, "avg": 1105, "p95": 2500}
+    },
+    {
+      "metric": "error_rate",
+      "type": "http_5xx_count",
+      "resource": "api-gateway",
+      "unit": "percent",
+      "points": [
+        {"timestamp": "2025-02-06T08:00:00Z", "value": 0.2},
+        {"timestamp": "2025-02-06T08:10:00Z", "value": 0.5},
+        {"timestamp": "2025-02-06T08:15:00Z", "value": 2.1},
+        {"timestamp": "2025-02-06T08:20:00Z", "value": 5.4},
+        {"timestamp": "2025-02-06T08:25:00Z", "value": 8},
+        {"timestamp": "2025-02-06T08:30:00Z", "value": 7.8}
+      ],
+      "summary": {"current": 7.8, "threshold": 1, "breached": true}
+    },
+    {
+      "metric": "cpu_utilization",
+      "type": "compute_cpu",
+      "resource": "cloud-sql-instance-1",
+      "unit": "percent",
+      "points": [
+        {"timestamp": "2025-02-06T08:00:00Z", "value": 45},
+        {"timestamp": "2025-02-06T08:05:00Z", "value": 58},
+        {"timestamp": "2025-02-06T08:10:00Z", "value": 65},
+        {"timestamp": "2025-02-06T08:15:00Z", "value": 72},
+        {"timestamp": "2025-02-06T08:20:00Z", "value": 84},
+        {"timestamp": "2025-02-06T08:25:00Z", "value": 88},
+        {"timestamp": "2025-02-06T08:30:00Z", "value": 86}
+      ],
+      "summary": {"current": 86, "threshold": 80, "breached": true}
+    },
+    {
+      "metric": "memory_utilization",
+      "type": "cloudsql_memory",
+      "resource": "cloud-sql-instance-1",
+      "unit": "percent",
+      "points": [
+        {"timestamp": "2025-02-06T08:00:00Z", "value": 62},
+        {"timestamp": "2025-02-06T08:15:00Z", "value": 78},
+        {"timestamp": "2025-02-06T08:25:00Z", "value": 91},
+        {"timestamp": "2025-02-06T08:30:00Z", "value": 89}
+      ],
+      "summary": {"current": 89, "threshold": 90, "breached": false}
+    },
+    {
+      "metric": "database_connections",
+      "type": "cloudsql_connections",
+      "resource": "cloud-sql-instance-1",
+      "unit": "count",
+      "points": [
+        {"timestamp": "2025-02-06T08:00:00Z", "value": 45},
+        {"timestamp": "2025-02-06T08:10:00Z", "value": 95},
+        {"timestamp": "2025-02-06T08:15:00Z", "value": 98},
+        {"timestamp": "2025-02-06T08:20:00Z", "value": 100},
+        {"timestamp": "2025-02-06T08:30:00Z", "value": 99}
+      ],
+      "summary": {"current": 99, "max_connections": 100, "near_limit": true}
+    },
+    {
+      "metric": "disk_read_latency_ms",
+      "type": "cloudsql_disk_io",
+      "resource": "cloud-sql-instance-1",
+      "unit": "ms",
+      "points": [
+        {"timestamp": "2025-02-06T08:00:00Z", "value": 2},
+        {"timestamp": "2025-02-06T08:15:00Z", "value": 8},
+        {"timestamp": "2025-02-06T08:25:00Z", "value": 25},
+        {"timestamp": "2025-02-06T08:30:00Z", "value": 22}
+      ],
+      "summary": {"current": 22, "threshold_ms": 20, "breached": true}
+    },
+    {
+      "metric": "instance_restarts",
+      "type": "compute_instance_restart_count",
+      "resource": "backend-service-us-central1-a",
+      "unit": "count",
+      "points": [
+        {"timestamp": "2025-02-06T08:14:00Z", "value": 1},
+        {"timestamp": "2025-02-06T08:18:00Z", "value": 2},
+        {"timestamp": "2025-02-06T08:22:00Z", "value": 3}
+      ],
+      "summary": {"total_restarts": 3, "last_restart": "2025-02-06T08:22:00Z"}
+    }
+  ],
+  "query_interval": "2025-02-06T08:00:00Z to 2025-02-06T08:35:00Z"
+}

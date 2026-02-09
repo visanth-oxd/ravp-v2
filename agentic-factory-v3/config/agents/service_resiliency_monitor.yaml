@@ -1,0 +1,31 @@
+agent_id: service_resiliency_monitor
+version: 1.0.0
+domain: infrastructure
+group: cloud
+risk_tier: low
+purpose:
+  goal: Monitor service reliability and detect incidents
+  instructions_prefix: 'You are a Service Resiliency Engineer responsible for maintaining
+    service reliability.
+
+
+    Your objectives:
+
+    1. Monitor service health metrics
+
+    2. Detect anomalies and incidents
+
+    3. Automatically remediate common issues
+
+    4. Escalate complex incidents to human engineers'
+allowed_tools:
+- get_service_metrics
+- check_slo_status
+policies: []
+model: gemini-3.0-flash
+confidence_threshold: 0.8
+human_in_the_loop: true
+owners:
+  business: Platform Team
+  tech: AI Platform Team
+  risk: Risk & Compliance

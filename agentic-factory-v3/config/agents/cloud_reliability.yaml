@@ -1,0 +1,26 @@
+agent_id: cloud_reliability
+version: 1.0.0
+domain: cloud_platform
+risk_tier: low
+purpose:
+  goal: Provide 24/7 automated incident response for GCP production services to minimize downtime and reduce manual toil
+skills:
+- incident_investigation
+- log_analysis
+- metric_analysis
+- root_cause_diagnosis
+- remediation_planning
+allowed_tools:
+- get_log_entries
+- get_metric_series
+- get_instance_details
+policies:
+- cloud/log_access
+- cloud/database_scaling
+- cloud/instance_restart
+model: auto
+confidence_threshold: 0.7
+human_in_the_loop: true
+rbac:
+  creator: admin@platform.com
+  visibility: public

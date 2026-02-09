@@ -1,0 +1,11 @@
+tool_id: flag_suspicious_account
+domain: fraud
+version: 1.0.0
+description: Flag a suspicious account for manual review.
+data_sources: []
+pii_level: high
+risk_tier: high
+requires_human_approval: true
+metadata:
+  created_at: '2026-02-07T14:51:21Z'
+  created_by: migration

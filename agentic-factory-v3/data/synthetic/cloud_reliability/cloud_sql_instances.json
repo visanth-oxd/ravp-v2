@@ -1,0 +1,16 @@
+[
+  {
+    "instance_id": "cloud-sql-instance-1",
+    "name": "main-db-us-central1",
+    "project_id": "my-gcp-project",
+    "region": "us-central1",
+    "tier": "db-n1-standard-2",
+    "state": "RUNNABLE",
+    "cpu_cores": 2,
+    "memory_gb": 7.5,
+    "disk_type": "PD_SSD",
+    "disk_size_gb": 100,
+    "created_at": "2024-06-01T00:00:00Z",
+    "notes": "Primary DB for backend-service; currently under load during INC-GCP-2025-001"
+  }
+]

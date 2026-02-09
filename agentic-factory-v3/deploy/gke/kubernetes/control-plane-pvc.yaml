@@ -1,0 +1,26 @@
+# Persistent storage for control-plane so new agents, tools, policies, and deployments survive pod restarts.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ravp-config-pvc
+  namespace: ravp
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  # storageClassName: standard   # GKE default; uncomment to set explicitly
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ravp-policies-pvc
+  namespace: ravp
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  # storageClassName: standard

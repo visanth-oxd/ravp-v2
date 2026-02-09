@@ -1,0 +1,13 @@
+tool_id: request_healing
+domain: general
+version: 1.0.0
+description: Invoke the Cloud Healing Agent to apply remediation (resize Cloud SQL,
+  restart instance).
+data_sources:
+- Cloud Healing Agent
+pii_level: none
+risk_tier: high
+requires_human_approval: true
+metadata:
+  created_at: '2026-02-07T14:51:21Z'
+  created_by: migration

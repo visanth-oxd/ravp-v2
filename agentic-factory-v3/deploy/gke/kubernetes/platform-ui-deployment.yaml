@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ravp-platform-ui
+  namespace: ravp
+  labels:
+    app: ravp-platform-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ravp-platform-ui
+  template:
+    metadata:
+      labels:
+        app: ravp-platform-ui
+    spec:
+      containers:
+        - name: platform-ui
+          image: visanthoxdlbg/ravp:platform-ui-1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8501
+          env:
+            # Point to control-plane service in-cluster
+            - name: API_URL
+              value: "http://ravp-control-plane.ravp.svc.cluster.local:8010"
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "200m"
+            limits:
+              memory: "1Gi"
+              cpu: "1000m"
+          startupProbe:
+            httpGet:
+              path: /_stcore/health
+              port: 8501
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 12
+          livenessProbe:
+            httpGet:
+              path: /_stcore/health
+              port: 8501
+            initialDelaySeconds: 5
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /_stcore/health
+              port: 8501
+            initialDelaySeconds: 5
+            periodSeconds: 10

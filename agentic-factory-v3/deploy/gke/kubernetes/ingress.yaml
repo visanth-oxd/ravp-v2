@@ -1,0 +1,43 @@
+# Expose RAVP UI (and optionally API) via GKE Ingress.
+# Used for custom domain e.g. ravp-ai.co.uk — see deploy/gke/README.md "Map custom domain".
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ravp-ingress
+  namespace: ravp
+  annotations:
+    kubernetes.io/ingress.class: "gce"
+    # Use a reserved static IP so DNS can point your domain to it
+    kubernetes.io/ingress.global-static-ip-name: "ravp-ip"
+    # Optional: Google-managed TLS for ravp-ai.co.uk (cert can take 15–60 min to provision)
+    # networking.gke.io/managed-certificates: "ravp-cert"
+spec:
+  rules:
+    - host: ravp-ai.co.uk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ravp-platform-ui
+                port:
+                  number: 8501
+    - host: www.ravp-ai.co.uk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ravp-platform-ui
+                port:
+                  number: 8501
+  # Default backend: traffic by IP (no Host match) goes to platform-ui
+  defaultBackend:
+    service:
+      name: ravp-platform-ui
+      port:
+        number: 8501
+  # For HTTPS: apply kubernetes/managed-certificate.yaml, then add annotation
+  # networking.gke.io/managed-certificates: "ravp-cert" to this Ingress and re-apply.

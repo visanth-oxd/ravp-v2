@@ -1,0 +1,44 @@
+[
+  {
+    "exception_id": "EX-2025-001",
+    "payment_id": "PAY-12345",
+    "customer_id": "CUST-7001",
+    "amount": 5000.00,
+    "currency": "GBP",
+    "status": "failed",
+    "failure_reason": "insufficient_funds",
+    "failure_code": "INSUFFICIENT_FUNDS",
+    "timestamp": "2025-02-05T10:30:00Z",
+    "retry_count": 0,
+    "beneficiary_account": "GB29NWBK60161331926819",
+    "beneficiary_name": "John Doe"
+  },
+  {
+    "exception_id": "EX-2025-002",
+    "payment_id": "PAY-12346",
+    "customer_id": "CUST-7002",
+    "amount": 15000.00,
+    "currency": "GBP",
+    "status": "failed",
+    "failure_reason": "account_frozen",
+    "failure_code": "ACCOUNT_FROZEN",
+    "timestamp": "2025-02-05T11:15:00Z",
+    "retry_count": 1,
+    "beneficiary_account": "GB29NWBK60161331926820",
+    "beneficiary_name": "Jane Smith"
+  },
+  {
+    "exception_id": "EX-2025-003",
+    "payment_id": "PAY-12347",
+    "customer_id": "CUST-7003",
+    "amount": 2500.00,
+    "currency": "GBP",
+    "status": "failed",
+    "failure_reason": "invalid_account",
+    "failure_code": "INVALID_ACCOUNT",
+    "timestamp": "2025-02-05T12:00:00Z",
+    "retry_count": 0,
+    "beneficiary_account": "GB29NWBK60161331926821",
+    "beneficiary_name": "Bob Johnson"
+  }
+]

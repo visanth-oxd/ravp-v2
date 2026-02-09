@@ -1,0 +1,13 @@
+tool_id: get_customer_profile
+domain: customer
+version: 1.0.0
+description: Fetch customer profile from systems of record (CoreBankingSystem/CustomerDataSystem).
+data_sources:
+- CoreBankingSystem
+- CustomerDataSystem
+pii_level: high
+risk_tier: low
+requires_human_approval: false
+metadata:
+  created_at: '2026-02-07T14:51:21Z'
+  created_by: migration

@@ -1,0 +1,11 @@
+# BackendConfig: give Streamlit time to respond (first load can be slow).
+# Without this, the load balancer may timeout and return ERR_EMPTY_RESPONSE.
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: ravp-platform-ui-backendconfig
+  namespace: ravp
+spec:
+  timeoutSec: 300
+  connectionDraining:
+    drainingTimeoutSec: 60

@@ -1,0 +1,14 @@
+tool_id: get_payment_exception
+domain: payments
+version: 1.0.0
+description: Fetch payment/transaction exception details from PaymentProcessingSystem/TransactionEngine
+  (e.g. failed payment, reason code).
+data_sources:
+- PaymentProcessingSystem
+- TransactionEngine
+pii_level: low
+risk_tier: low
+requires_human_approval: false
+metadata:
+  created_at: '2026-02-07T14:51:21Z'
+  created_by: migration

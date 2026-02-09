@@ -1,0 +1,11 @@
+tool_id: suggest_remediation
+domain: general
+version: 1.0.0
+description: Suggest remediation steps for a cloud incident (advisory only).
+data_sources: []
+pii_level: none
+risk_tier: medium
+requires_human_approval: true
+metadata:
+  created_at: '2026-02-07T14:51:21Z'
+  created_by: migration

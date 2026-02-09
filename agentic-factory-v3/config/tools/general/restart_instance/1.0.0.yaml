@@ -1,0 +1,13 @@
+tool_id: restart_instance
+domain: general
+version: 1.0.0
+description: Restart a GCE or Cloud SQL instance.
+data_sources:
+- Google Compute API
+- Cloud SQL
+pii_level: none
+risk_tier: high
+requires_human_approval: true
+metadata:
+  created_at: '2026-02-07T14:51:21Z'
+  created_by: migration

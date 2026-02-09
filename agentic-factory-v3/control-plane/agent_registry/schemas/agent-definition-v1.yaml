@@ -1,0 +1,73 @@
+# Agent definition schema v1 – registered with Agent Registry.
+# Used by control-plane and agent-sdk to load agent config.
+
+$schema: http://json-schema.org/draft-07/schema#
+type: object
+required: [agent_id, version, risk_tier, purpose, allowed_tools]
+properties:
+  agent_id:
+    type: string
+    description: Unique agent identifier (e.g. payment_failed, payments_exception_agent)
+  version:
+    type: string
+    pattern: "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    description: Semantic version
+  domain:
+    type: string
+    description: Business domain (e.g. payments, complaints, credit)
+  group:
+    type: string
+    description: Agent group for UI and persona-based visibility (e.g. business, cloud, business_intelligence, platform). Used with config/personas.yaml so business users see only business agents, cloud users see cloud agents, platform sees all.
+  risk_tier:
+    type: string
+    enum: [low, medium, high]
+    description: Risk tier determines governance requirements
+  purpose:
+    type: object
+    required: [goal]
+    properties:
+      goal:
+        type: string
+        description: What this agent does
+      instructions_prefix:
+        type: string
+        description: Optional prefix instructions for the agent
+  owners:
+    type: object
+    properties:
+      business: { type: string, description: "Business owner" }
+      tech: { type: string, description: "Technical owner" }
+      risk: { type: string, description: "Risk/compliance owner" }
+  skills:
+    type: array
+    items: { type: string }
+    description: High-level capabilities this agent has (e.g. incident_investigation, payment_processing, log_analysis). Used for discovery, routing, and LLM context.
+  allowed_tools:
+    type: array
+    items: { type: string }
+    description: List of tool IDs this agent can use (must be registered in tool registry)
+  policies:
+    type: array
+    items: { type: string }
+    description: Policy IDs from policy-registry (e.g. payments/retry)
+  model:
+    type: string
+    description: LLM model identifier (e.g. gemini-2.0-flash-exp, gpt-4, claude-3-sonnet)
+  llm_provider:
+    type: string
+    description: Optional LLM provider (google, vertex_ai, openai, anthropic). Auto-detected from model if not specified.
+  llm_config:
+    type: object
+    description: Provider-specific configuration (project, region, base_url, etc.)
+  interactive:
+    type: boolean
+    default: true
+    description: When the agent has an LLM (model set), interactive is the default (true) so the agent supports interactive sessions (e.g. REPL, conversation). Set to false to disable. When no model is set, interactive defaults to false unless explicitly set.
+  confidence_threshold:
+    type: number
+    minimum: 0
+    maximum: 1
+    description: Minimum confidence threshold for agent decisions
+  human_in_the_loop:
+    type: boolean
+    description: Whether this agent requires human approval for actions

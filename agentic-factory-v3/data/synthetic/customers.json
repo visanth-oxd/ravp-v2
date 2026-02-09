@@ -1,0 +1,44 @@
+[
+  {
+    "customer_id": "CUST-7001",
+    "name": "Alice Williams",
+    "email": "alice.williams@example.com",
+    "phone": "+44 20 1234 5678",
+    "account_number": "GB29NWBK60161331926819",
+    "account_type": "current",
+    "balance": 3000.00,
+    "currency": "GBP",
+    "tier": "standard",
+    "status": "active",
+    "kyc_status": "verified",
+    "risk_level": "low"
+  },
+  {
+    "customer_id": "CUST-7002",
+    "name": "Charlie Brown",
+    "email": "charlie.brown@example.com",
+    "phone": "+44 20 2345 6789",
+    "account_number": "GB29NWBK60161331926820",
+    "account_type": "premium",
+    "balance": 50000.00,
+    "currency": "GBP",
+    "tier": "premium",
+    "status": "frozen",
+    "kyc_status": "verified",
+    "risk_level": "medium"
+  },
+  {
+    "customer_id": "CUST-7003",
+    "name": "Diana Prince",
+    "email": "diana.prince@example.com",
+    "phone": "+44 20 3456 7890",
+    "account_number": "GB29NWBK60161331926821",
+    "account_type": "savings",
+    "balance": 15000.00,
+    "currency": "GBP",
+    "tier": "standard",
+    "status": "active",
+    "kyc_status": "verified",
+    "risk_level": "low"
+  }
+]

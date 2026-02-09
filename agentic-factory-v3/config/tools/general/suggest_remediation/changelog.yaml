@@ -1,0 +1,8 @@
+versions:
+- version: 1.0.0
+  previous_version: null
+  timestamp: '2026-02-07T14:51:21Z'
+  changed_by: migration
+  changes:
+    initial:
+    - Initial version from tool_registry.yaml

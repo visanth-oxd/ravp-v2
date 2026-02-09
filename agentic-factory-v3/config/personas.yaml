@@ -1,0 +1,43 @@
+# =============================================================================
+# PERSONA VISIBILITY: Which user roles can see which agents?
+# =============================================================================
+#
+# DOMAIN  = A category on each AGENT (set in config/agents/<agent_id>.yaml).
+#           Examples: payments, fraud, cloud_platform.
+#           Used to group agents in the UI (e.g. "Payments", "Cloud Platform").
+#
+# PERSONA = A role or "view" assigned to a USER (e.g. business user, cloud ops).
+#           Each persona is allowed to see agents only in certain domains.
+#           This file defines: "Persona X can see agents whose domain is in this list."
+#
+# HOW IT'S USED:
+#   - API: GET /mesh/agents?persona=business  → returns only agents in domains
+#          listed under "business" below (payments, fraud, customer_service).
+#   - UI:  If your app knows the current user's persona, call the API with
+#          that persona so the user only sees agents they're allowed to see.
+#   - platform persona with domains: [] means "see all agents" (no filter).
+#
+# =============================================================================
+
+personas:
+  # Business users (payments, fraud, customer service teams)
+  business:
+    domains:
+      - payments
+      - fraud
+      - customer_service
+
+  # Cloud / ops users (reliability, healing, infrastructure)
+  cloud:
+    domains:
+      - cloud_platform
+      - infrastructure
+
+  # BI / analytics users
+  business_intelligence:
+    domains:
+      - analytics
+
+  # Platform team: sees every agent (empty list = no filter)
+  platform:
+    domains: []

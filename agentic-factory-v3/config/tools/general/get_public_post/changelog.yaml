@@ -1,0 +1,8 @@
+versions:
+  - version: "1.0.0"
+    previous_version: null
+    timestamp: "2026-02-07T00:00:00Z"
+    changed_by: admin
+    changes:
+      initial:
+        - Sample API-based tool for JSONPlaceholder public API

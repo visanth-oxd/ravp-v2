@@ -1,0 +1,15 @@
+domain: payments
+description: Payments domain tools
+tools:
+- tool_id: get_payment_exception
+  current_version: 1.0.0
+  latest_version: 1.0.0
+  status: active
+- tool_id: execute_payment_retry
+  current_version: 1.0.0
+  latest_version: 1.0.0
+  status: active
+- tool_id: suggest_payment_resolution
+  current_version: 1.0.0
+  latest_version: 1.0.0
+  status: active

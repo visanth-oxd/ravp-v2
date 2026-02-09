@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield -->
+  <path d="M32 4 L56 14 L56 32 C56 46 44 56 32 60 C20 56 8 46 8 32 L8 14 Z" fill="url(#shieldGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <!-- AI text -->
+  <text x="28" y="40" text-anchor="middle" fill="white" font-size="22" font-weight="700" font-family="system-ui, -apple-system, sans-serif">AI</text>
+  <!-- Tick in circle badge -->
+  <circle cx="46" cy="20" r="7" fill="url(#accentGrad)" stroke="white" stroke-width="1.5"/>
+  <path d="M43 20 L45 22 L49 18" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

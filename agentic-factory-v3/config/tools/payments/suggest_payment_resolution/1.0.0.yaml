@@ -1,0 +1,12 @@
+tool_id: suggest_payment_resolution
+domain: payments
+version: 1.0.0
+description: Suggest resolution for a failed payment (retry, waive fee, escalate).
+  Advisory only; human must approve.
+data_sources: []
+pii_level: none
+risk_tier: medium
+requires_human_approval: true
+metadata:
+  created_at: '2026-02-07T14:51:21Z'
+  created_by: migration

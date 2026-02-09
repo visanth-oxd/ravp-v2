@@ -1,0 +1,8 @@
+# Config-only image: policies + config (tools, agents, personas) from repo.
+# Build from repo root: docker build -f deploy/gke/Dockerfile.ravp-config -t ravp-config:1.0.0 .
+# Used by control-plane init to sync "config from repo" into the PVC (see CONFIG-AS-DEPLOYMENT.md).
+FROM alpine:3.18
+COPY config/ /repo/config/
+COPY policies/ /repo/policies/
+# Optional: run sync when used as init image (copy to /mnt/config and /mnt/policies)
+ENTRYPOINT ["/bin/sh", "-c", "cp -a /repo/config/. /mnt/config/ 2>/dev/null || true; cp -a /repo/policies/. /mnt/policies/ 2>/dev/null || true; echo Done"]

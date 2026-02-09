@@ -1,0 +1,101 @@
+{
+  "entries": [
+    {
+      "timestamp": "2025-02-06T08:12:15Z",
+      "severity": "WARNING",
+      "resource": "cloud-sql-instance-1",
+      "message": "Cloud SQL: Connection count approaching max (95/100). Consider increasing max_connections or scaling instance.",
+      "log_name": "projects/my-gcp-project/logs/cloudsql.googleapis.com%2Fmysql.err",
+      "labels": {"instance_id": "cloud-sql-instance-1"}
+    },
+    {
+      "timestamp": "2025-02-06T08:13:00Z",
+      "severity": "WARNING",
+      "resource": "cloud-sql-instance-1",
+      "message": "Slow query detected: SELECT * FROM orders WHERE ... duration 4.2s. Consider adding index or optimizing.",
+      "log_name": "projects/my-gcp-project/logs/cloudsql.googleapis.com%2Fmysql-general",
+      "labels": {"instance_id": "cloud-sql-instance-1"}
+    },
+    {
+      "timestamp": "2025-02-06T08:14:32Z",
+      "severity": "ERROR",
+      "resource": "backend-service-us-central1-a-001",
+      "message": "Connection timeout to Cloud SQL after 30s",
+      "log_name": "projects/my-gcp-project/logs/backend-app",
+      "labels": {"service": "backend", "zone": "us-central1-a"}
+    },
+    {
+      "timestamp": "2025-02-06T08:14:35Z",
+      "severity": "WARNING",
+      "resource": "api-gateway",
+      "message": "Upstream backend returned 504 Gateway Timeout",
+      "log_name": "projects/my-gcp-project/logs/apigateway",
+      "labels": {"backend": "backend-service"}
+    },
+    {
+      "timestamp": "2025-02-06T08:15:01Z",
+      "severity": "ERROR",
+      "resource": "cloud-sql-instance-1",
+      "message": "High CPU usage: 85%. Consider scaling or optimizing queries.",
+      "log_name": "projects/my-gcp-project/logs/cloudsql.googleapis.com%2Fcloudsql",
+      "labels": {"instance": "cloud-sql-instance-1"}
+    },
+    {
+      "timestamp": "2025-02-06T08:16:00Z",
+      "severity": "WARNING",
+      "resource": "cloud-sql-instance-1",
+      "message": "Disk read latency elevated: 18ms (threshold 20ms). May impact query performance.",
+      "log_name": "projects/my-gcp-project/logs/cloudsql.googleapis.com%2Fcloudsql",
+      "labels": {"instance_id": "cloud-sql-instance-1"}
+    },
+    {
+      "timestamp": "2025-02-06T08:17:00Z",
+      "severity": "INFO",
+      "resource": "cloud-sql-instance-1",
+      "message": "Memory utilization 88%. Buffer pool usage high.",
+      "log_name": "projects/my-gcp-project/logs/cloudsql.googleapis.com%2Fmysql.err",
+      "labels": {"instance_id": "cloud-sql-instance-1"}
+    },
+    {
+      "timestamp": "2025-02-06T08:18:22Z",
+      "severity": "WARNING",
+      "resource": "backend-service-us-central1-a-001",
+      "message": "Instance restart triggered by health check failure",
+      "log_name": "projects/my-gcp-project/logs/compute",
+      "labels": {"instance_id": "backend-service-us-central1-a-001"}
+    },
+    {
+      "timestamp": "2025-02-06T08:20:00Z",
+      "severity": "ERROR",
+      "resource": "cloud-sql-instance-1",
+      "message": "Connection pool exhausted. New connections refused until timeout.",
+      "log_name": "projects/my-gcp-project/logs/cloudsql.googleapis.com%2Fmysql.err",
+      "labels": {"instance_id": "cloud-sql-instance-1"}
+    },
+    {
+      "timestamp": "2025-02-06T08:22:10Z",
+      "severity": "ERROR",
+      "resource": "backend-service-us-central1-a-001",
+      "message": "OOMKilled: container memory limit exceeded",
+      "log_name": "projects/my-gcp-project/logs/backend-app",
+      "labels": {"service": "backend"}
+    },
+    {
+      "timestamp": "2025-02-06T08:25:00Z",
+      "severity": "INFO",
+      "resource": "backend-service-us-central1-a-001",
+      "message": "Instance back online after restart",
+      "log_name": "projects/my-gcp-project/logs/compute",
+      "labels": {}
+    },
+    {
+      "timestamp": "2025-02-06T08:26:00Z",
+      "severity": "INFO",
+      "resource": "cloud-sql-instance-1",
+      "message": "[Analysis] Findings: Unoptimized slow query held connections; Cloud SQL CPU/memory pressure led to connection pool exhaustion; backend timed out then OOMKilled. Root cause: Cascading failure from Cloud SQL connection exhaustion (slow query + insufficient instance capacity).",
+      "log_name": "projects/my-gcp-project/logs/analysis",
+      "labels": {}
+    }
+  ],
+  "next_page_token": null
+}
