@@ -1,4 +1,4 @@
-# RAVP v2 – REgulated Agent Vending Platform (agentic-factory-v2) – Overview
+# RAVP v2 – Regulated Agent Vending Platform (agentic-factory-v2) – Overview
 
 This document describes the **entire functionality** of the repo: every major component and how they fit together. Separate READMEs per section can be added later for detail.
 
